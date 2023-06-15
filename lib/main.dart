@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopapp/screens/tabscreen.dart';
 import './screens/splash_screen.dart';
 import './screens/cart_screen.dart';
 import './screens/products_overview_screen.dart';
@@ -56,7 +57,7 @@ class MyApp extends StatelessWidget {
               ),
               home:
                auth.isAuth
-                  ? ProductsOverviewScreen()
+                  ? TabScreen()
                   : FutureBuilder(
                       future: auth.tryAutoLogin(),
                       builder: (ctx, authResultSnapshot) =>

@@ -17,10 +17,15 @@ class UserProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final productsData = Provider.of<Products>(context);
-    print('rebuilding...');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Products'),
+        shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(15),
+        bottomRight: Radius.circular(15)
+      )
+    ),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),
@@ -35,7 +40,7 @@ class UserProductsScreen extends StatelessWidget {
         future: _refreshProducts(context),
         builder: (ctx, snapshot) =>
             snapshot.connectionState == ConnectionState.waiting
-                ? Center(
+                ? const Center(
                     child: CircularProgressIndicator(),
                   )
                 : RefreshIndicator(

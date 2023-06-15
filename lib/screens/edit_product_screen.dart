@@ -135,6 +135,12 @@ class _EditProductScreenState extends State<EditProductScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Product'),
+        shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(15),
+        bottomRight: Radius.circular(15)
+      )
+    ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save),

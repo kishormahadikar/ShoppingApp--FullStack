@@ -18,6 +18,12 @@ class ProductDetailScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(loadedProd.title),
+          shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(15),
+        bottomRight: Radius.circular(15)
+      )
+    ),
         ),
         body: Container(
           child: SingleChildScrollView(
@@ -27,7 +33,11 @@ class ProductDetailScreen extends StatelessWidget {
                   loadedProd.imageUrl,
                   fit: BoxFit.cover,
                 ),
+                const Divider(
+                  thickness: 2,
+                ),
                 Text(
+
                   loadedProd.title,
                   style: const TextStyle(
                       fontSize: 25, fontWeight: FontWeight.w800),
@@ -38,46 +48,63 @@ class ProductDetailScreen extends StatelessWidget {
                   style: const TextStyle(fontSize: 25),
                 ),
                 const SizedBox(height: 10),
+                const Divider(
+                  thickness: 2,
+                ),
                 const Text(
                   'Product Desctiption',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800),
                 ),
+                
                 Text(
                   loadedProd.description,
                   style: const TextStyle(fontSize: 15),
                 ),
+               const Divider(
+                  thickness: 3,
+                  color: Colors.grey,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    ElevatedButton(
-                      onPressed: (() {
-                        cartData.addItem(
-                            loadedProd.id, loadedProd.price, loadedProd.title);
-                      }),
-                      style: ButtonStyle(
-                          shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  side: const BorderSide(color: Colors.red)))),
-                      child: const Text(
-                        'Add to cart',
-                        style: TextStyle(fontSize: 18),
+                    SizedBox(
+                      height: 50,
+                      width: 200,
+                      child: ElevatedButton(
+                        
+                        onPressed: (() {
+                          cartData.addItem(
+                              loadedProd.id, loadedProd.price, loadedProd.title);
+                        }),
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    side: const BorderSide(color: Colors.red)))),
+                        child: const Text(
+                          'Add to cart',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: (() {
-                        loadedProd.isFavorite;
-                      }),
-                      style: ButtonStyle(
-                          shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  side: const BorderSide(color: Colors.red)))),
-                      child: const Text(
-                        'Add to favourites  ',
-                        style: TextStyle(fontSize: 18),
+                    SizedBox(
+                      height: 50,
+                      width: 200,
+                      child: ElevatedButton(
+                        onPressed: (() {
+                          loadedProd.isFavorite;
+                        }),
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    side: const BorderSide(color: Colors.red)))),
+                        child: const Text(
+                          'Add to favourites  ',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
                     ),
                   ],
@@ -89,7 +116,9 @@ class ProductDetailScreen extends StatelessWidget {
             ),
           ),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black87,
           onPressed: (() {
             cartData.addItem(loadedProd.id, loadedProd.price, loadedProd.title);
           }),

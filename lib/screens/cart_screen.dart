@@ -14,6 +14,12 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your Cart'),
+        shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(15),
+        bottomRight: Radius.circular(15)
+      )
+    ),
       ),
       body: Column(
         children: <Widget>[
