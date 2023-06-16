@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^4.0.0
+  flutter_svg: ^0.22.0
   intl: ^0.15.8
   http: ^0.13.5
   shared_preferences: ^0.5.3+1
@@ -68,7 +69,7 @@ flutter:
   assets:
     - images/Shopname.png
     - images/waiting.png
-    - image/
+    #  - image/
 
     #- images/a_dot_ham.jpeg
 

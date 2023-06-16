@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopapp/screens/profile/profile_screen.dart';
 import 'package:shopapp/screens/details/details_screen.dart';
-import 'package:shopapp/screens/profile_screen.dart';
 import 'package:shopapp/screens/tabscreen.dart';
 import './screens/splash_screen.dart';
 import './screens/cart_screen.dart';
-import './screens/products_overview_screen.dart';
 import './screens/product_detail_screen.dart';
 import './providers/products.dart';
 import './providers/cart.dart';
@@ -69,8 +68,10 @@ class MyApp extends StatelessWidget {
                               : AuthScreen(),
                     ),
               routes: {
+                AuthScreen.routeName:(context) => AuthScreen(),
+                ProfileScreen.routeName:((context) => ProfileScreen()),
                 DetailsScreen.routeName:(ctx)=>DetailsScreen(),
-                ProfilePage.routeName:(ctx)=>ProfilePage(),
+                //ProfileSc.routeName:(ctx)=>ProfileScreen(),
                 ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
                 CartScreen.routeName: (ctx) => CartScreen(),
                 OrdersScreen.routeName: (ctx) => OrdersScreen(),

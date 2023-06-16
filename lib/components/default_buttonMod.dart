@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 import '../size_config.dart';
 
-class DefaultButton extends StatelessWidget {
-  DefaultButton({
+class DefaultButtonMod extends StatelessWidget {
+  DefaultButtonMod({
     Key key,
     this.text,
     this.press,
     this.color,
+    this.child
   }) : super(key: key);
   final String text;
   final Function press;
-   
+  Widget child;
   Color color = kPrimaryColor;
 
   @override
@@ -28,13 +29,7 @@ class DefaultButton extends StatelessWidget {
           backgroundColor: color,
         ),
         onPressed: press as void Function(),
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 18, //c
-            color: Colors.white,
-          ),
-        ),
+        child: child
       ),
     );
   }

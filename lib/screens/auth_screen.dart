@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -233,7 +234,7 @@ class _AuthCardState extends State<AuthCard> {
                     style: const TextStyle(
                         color: Colors.black,
                         fontSize: 22,
-                        fontWeight: FontWeight.bold),
+                        ),
                     keyboardType: TextInputType.emailAddress,
                     // ignore: missing_return
                     validator: (value) {
@@ -249,8 +250,7 @@ class _AuthCardState extends State<AuthCard> {
                     decoration: const InputDecoration(labelText: 'Password'),
                     style: const TextStyle(
                         color: Colors.black,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
+                        fontSize: 22,),
                     obscureText: true,
                     controller: _passwordController,
                     // ignore: missing_return
@@ -270,8 +270,8 @@ class _AuthCardState extends State<AuthCard> {
                           const InputDecoration(labelText: 'Confirm Password'),
                       style: const TextStyle(
                           color: Colors.black,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold),
+                          fontSize: 22,),
+                          //fontWeight: FontWeight.bold),
                       obscureText: true,
                       validator: _authMode == AuthMode.Signup
                           // ignore: missing_return

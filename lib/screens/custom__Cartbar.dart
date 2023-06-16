@@ -6,9 +6,10 @@ import '../../../../size_config.dart';
 
 class CustomBar extends StatelessWidget {
    String pagename;
-
+   final int itemC;
   CustomBar({
-    @required this.pagename});
+    @required this.pagename,
+     @required this.itemC});
 
   @override
   // AppBar().preferredSize.height provide us the height that appy on our app bar
@@ -22,9 +23,11 @@ class CustomBar extends StatelessWidget {
           horizontal: 20,
         ), //c),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 10,
+             SizedBox(
+              //height: 10,
+             
             ),
             Row(
               children: [
@@ -48,15 +51,27 @@ class CustomBar extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(left: 10),
-                  child: Text(pagename,
-                  style:const TextStyle(
-                    color: Colors.deepPurpleAccent,
-                    fontSize: 25,
-                    fontFamily: 'Muli',
-                  ),
-                  ),
+                SizedBox(
+              //height: 10,
+              width: MediaQuery.of(context).size.width*0.2,
+            ),
+                Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Text(pagename,
+                      style:const TextStyle(
+                        color: Colors.deepPurpleAccent,
+                        fontSize: 25,
+                        fontFamily: 'Muli',
+                      ),
+                      ),
+                    ),
+                    Text(
+            "${itemC} items",
+            style: Theme.of(context).textTheme.caption,
+          ),
+                  ],
                 )
                 // Container(
                 //   padding:

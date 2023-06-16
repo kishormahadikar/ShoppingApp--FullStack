@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:shopapp/screens/profile_screen.dart';
+import 'package:shopapp/screens/edit_product_screen.dart';
+import 'package:shopapp/screens/profile/profile_screen.dart';
 import 'package:shopapp/widgets/app_drawer.dart';
 import 'products_overview_screen.dart';
 import 'orders_screen.dart';
@@ -20,7 +22,7 @@ class _TabScreenState extends State<TabScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    _pages = [ProductsOverviewScreen(), OrdersScreen(), UserProductsScreen()];
+    _pages = [ProductsOverviewScreen(), OrdersScreen(), ProfileScreen()];
     super.initState();
   }
 
@@ -42,7 +44,7 @@ class _TabScreenState extends State<TabScreen> {
           //enableFeedback: true,
           //selectedFontSize: 20,
           currentIndex: selectedIndex,
-          elevation: 20,
+          elevation: 50,
           onTap: _selectedPage,
           // ignore: prefer_const_literals_to_create_immutables
           items: [
@@ -54,14 +56,14 @@ class _TabScreenState extends State<TabScreen> {
               icon: Icon(Icons.star),
               label: 'My Orders',
             ),
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.edit),
-              label: 'Manage Products',
-            ),
             // const BottomNavigationBarItem(
-            //   icon: Icon(Icons.manage_accounts),
-            //   label: 'Profile',
+            //   icon: Icon(Icons.edit),
+            //   label: 'Manage Products',
             // ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.manage_accounts),
+              label: 'Profile',
+            ),
           ],
         ));
   }
