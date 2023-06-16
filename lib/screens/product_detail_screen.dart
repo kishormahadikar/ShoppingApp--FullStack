@@ -74,7 +74,7 @@ class ProductDetailScreen extends StatelessWidget {
                         
                         onPressed: (() {
                           cartData.addItem(
-                              loadedProd.id, loadedProd.price, loadedProd.title);
+                              loadedProd.id, loadedProd.price, loadedProd.title,loadedProd.imageUrl);
                         }),
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all<
@@ -120,7 +120,7 @@ class ProductDetailScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.black87,
           onPressed: (() {
-            cartData.addItem(loadedProd.id, loadedProd.price, loadedProd.title);
+            cartData.addItem(loadedProd.id, loadedProd.price, loadedProd.title,loadedProd.imageUrl);
           }),
           child: const Icon(Icons.shopping_cart_checkout_rounded),
         ));

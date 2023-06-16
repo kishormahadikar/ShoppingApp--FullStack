@@ -56,7 +56,7 @@ class DetailsScreen extends StatelessWidget {
           text: "Add To Cart",
           color: Colors.deepPurple,
           press: (() {
-            cartData.addItem(args.id, args.price, args.title);
+            cartData.addItem(args.id, args.price, args.title,args.imageUrl);
           }),
         ),
       ),
