@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:shopapp/screens/wishlistt.dart';
+import 'package:shopapp/screens/profile_screen.dart';
 import 'package:shopapp/widgets/app_drawer.dart';
-import 'splash_screen.dart';
-import 'cart_screen.dart';
 import 'products_overview_screen.dart';
-import 'product_detail_screen.dart';
-import '../providers/products.dart';
-import '../providers/cart.dart';
-import '../providers/orders.dart';
-import '../providers/auth.dart';
 import 'orders_screen.dart';
 import './user_products_screen.dart';
-import './edit_product_screen.dart';
-import './auth_screen.dart';
-import 'homesplashscr.dart';
+
 
 class TabScreen extends StatefulWidget {
   static const routeName = '/tabScreen';
@@ -50,6 +39,8 @@ class _TabScreenState extends State<TabScreen> {
 
         body: _pages[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+          //enableFeedback: true,
+          //selectedFontSize: 20,
           currentIndex: selectedIndex,
           elevation: 20,
           onTap: _selectedPage,
@@ -67,6 +58,10 @@ class _TabScreenState extends State<TabScreen> {
               icon: Icon(Icons.edit),
               label: 'Manage Products',
             ),
+            // const BottomNavigationBarItem(
+            //   icon: Icon(Icons.manage_accounts),
+            //   label: 'Profile',
+            // ),
           ],
         ));
   }

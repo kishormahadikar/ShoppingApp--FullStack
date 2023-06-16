@@ -1,10 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/auth.dart';
 import '../models/http_exception.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 enum AuthMode { Signup, Login }
 
@@ -18,14 +17,14 @@ class CustomShape extends CustomClipper<Path> {
     path.quadraticBezierTo(width / 2, height, width, height - 50);
     path.lineTo(width, 0);
     path.close();
-    
+
     return path;
- }
+  }
 
   @override
-    bool shouldReclip(CustomClipper oldClipper) {
+  bool shouldReclip(CustomClipper oldClipper) {
     return true;
- }
+  }
 }
 
 class AuthScreen extends StatelessWidget {
@@ -33,81 +32,80 @@ class AuthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
       // appBar: AppBar(
       //   backgroundColor: Colors.deepPurple,
-        
+
       // ),
       //resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Column(
-            children: [
+          children: [
             Container(
               height: 150.0,
-              decoration:  BoxDecoration(
-        color: Colors.deepPurple,
-        boxShadow: const [
-        BoxShadow(blurRadius: 40.0)
-        ],
-        borderRadius:  BorderRadius.vertical(
-          bottom:  Radius.elliptical(
-              MediaQuery.of(context).size.width, 100.0)),
-          ),
-        ),
-        //             ClipPath(
-        //      clipper: CustomShape(), 
-        //      child: Container(
-        //      height: 100,
-        //      color: Colors.deepPurple,
-        //      ),
-        //  ),
-              Stack(
-                children: <Widget>[
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //     gradient: LinearGradient(
-                  //       colors: [
-                  //        Colors.white,
-                  
-                  //       ],
-                  //       begin: Alignment.topLeft,
-                  //       end: Alignment.bottomRight,
-                  //       stops: [0, 1],
-                  //     ),
-                  //   ),
-                  // ),
-                       
-                  SingleChildScrollView(
-                    child: SizedBox(
-                      height: deviceSize.height-125,
-                      width: deviceSize.width,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Column(
-                            children: [
-                              const Text(
-                                  'Use credentials: username: terminator1405@gmail.com, pw-12345678  or SIGN UP'),
-                              Image.network(
-                                  'https://logowik.com/content/uploads/images/t_shop-app6999.jpg')
-                            ],
-                          ),
-                          Flexible(
-                            flex: deviceSize.width > 600 ? 2 : 1,
-                            child: AuthCard(),
-                          ),
-                        ],
-                      ),
+              decoration: BoxDecoration(
+                color: Colors.deepPurple,
+                boxShadow: const [BoxShadow(blurRadius: 40.0)],
+                borderRadius: BorderRadius.vertical(
+                    bottom: Radius.elliptical(
+                        MediaQuery.of(context).size.width, 100.0)),
+              ),
+            ),
+            //             ClipPath(
+            //      clipper: CustomShape(),
+            //      child: Container(
+            //      height: 100,
+            //      color: Colors.deepPurple,
+            //      ),
+            //  ),
+            Stack(
+              children: <Widget>[
+                // Container(
+                //   decoration: BoxDecoration(
+                //     gradient: LinearGradient(
+                //       colors: [
+                //        Colors.white,
+
+                //       ],
+                //       begin: Alignment.topLeft,
+                //       end: Alignment.bottomRight,
+                //       stops: [0, 1],
+                //     ),
+                //   ),
+                // ),
+
+                SingleChildScrollView(
+                  child: SizedBox(
+                    height: deviceSize.height - 125,
+                    width: deviceSize.width,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Column(
+                          children: [
+                            const Text(
+                                'Use credentials: username: terminator1405@gmail.com, pw-12345678  or SIGN UP'),
+                            Image.network(
+                                'https://logowik.com/content/uploads/images/t_shop-app6999.jpg')
+                          ],
+                        ),
+                        Flexible(
+                          flex: deviceSize.width > 600 ? 2 : 1,
+                          child: AuthCard(),
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
-      
     );
   }
 }
@@ -211,7 +209,6 @@ class _AuthCardState extends State<AuthCard> {
 
   @override
   Widget build(BuildContext context) {
-    
     final deviceSize = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Card(
@@ -222,8 +219,8 @@ class _AuthCardState extends State<AuthCard> {
         child: Container(
           //alignment: Alignment.bottomCenter,
           //height: _authMode == AuthMode.Signup ? 320 : 260,
-          constraints:
-              BoxConstraints(minHeight: _authMode == AuthMode.Signup ? 320 : 260),
+          constraints: BoxConstraints(
+              minHeight: _authMode == AuthMode.Signup ? 320 : 260),
           width: deviceSize.width * 1,
           //padding: EdgeInsets.all(16.0),
           child: Form(
@@ -231,7 +228,6 @@ class _AuthCardState extends State<AuthCard> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'E-Mail'),
                     style: const TextStyle(
@@ -295,8 +291,8 @@ class _AuthCardState extends State<AuthCard> {
                     Column(
                       children: [
                         const SizedBox(
-                     height: 20,
-                       ),
+                          height: 20,
+                        ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -308,7 +304,8 @@ class _AuthCardState extends State<AuthCard> {
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(18.0),
+                                            borderRadius:
+                                                BorderRadius.circular(18.0),
                                             side: const BorderSide(
                                                 color: Colors.deepPurple)))),
                                 onPressed: _submit,
@@ -332,7 +329,8 @@ class _AuthCardState extends State<AuthCard> {
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(18.0),
+                                            borderRadius:
+                                                BorderRadius.circular(18.0),
                                             side: const BorderSide(
                                                 color: Colors.deepPurple)))),
                                 onPressed: _switchAuthMode,

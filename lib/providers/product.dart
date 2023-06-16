@@ -1,7 +1,6 @@
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
 
 class Product with ChangeNotifier {
   final String id;
@@ -10,6 +9,8 @@ class Product with ChangeNotifier {
   final double price;
   final String imageUrl;
   bool isFavorite;
+  List<Color> colors = <Color>[Colors.red, Colors.blue, Colors.green, Colors.yellow, Colors.orange];
+
 
   Product({
     @required this.id,
@@ -18,6 +19,7 @@ class Product with ChangeNotifier {
     @required this.price,
     @required this.imageUrl,
     this.isFavorite = false,
+    this.colors,
   });
 
   void _setFavValue(bool newValue) {
@@ -29,8 +31,8 @@ class Product with ChangeNotifier {
     final oldStatus = isFavorite;
     isFavorite = !isFavorite;
     notifyListeners();
-    final url =
-        Uri.parse('https://trial-c4d60-default-rtdb.firebaseio.com/userFavorites/$userId/$id.json?auth=$token');
+    final url = Uri.parse(
+        'https://trial-c4d60-default-rtdb.firebaseio.com/userFavorites/$userId/$id.json?auth=$token');
     try {
       final response = await http.put(
         url,
@@ -46,3 +48,5 @@ class Product with ChangeNotifier {
     }
   }
 }
+
+

@@ -48,26 +48,29 @@ class _OrderItemState extends State<OrderItem> {
                       .map(
                         (prod) => Column(
                           children: [
-                            Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Text(
-                                      prod.title,
-                                      style:const  TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      Text(
+                                        prod.title,
+                                        style:const  TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      '${prod.quantity}x \$${prod.price}',
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.black,
+                                      Text(
+                                        '${prod.quantity}x \$${prod.price}',
+                                        style: const TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.black,
+                                        ),
                                       ),
-                                    ),
-                                        
-                                  ],
-                                ),
+                                          
+                                    ],
+                                  ),
+                            ),
                                 const SizedBox(height: 10,),
                                 Container(
                                       child: Image.network('https://static.vecteezy.com/system/resources/previews/021/433/535/original/progress-bar-of-product-delivery-status-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-vector.jpg',

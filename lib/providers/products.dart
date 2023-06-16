@@ -42,7 +42,7 @@ class Products with ChangeNotifier {
     //       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     // ),
   ];
-  List<Categories> _cat = [
+   List<Categories> _cat = [
     Categories(
       id: 'p1',
       title: 'Red Shirt',
@@ -76,7 +76,7 @@ class Products with ChangeNotifier {
           'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Cast-Iron-Pan.jpg/1024px-Cast-Iron-Pan.jpg',
     ),
   ];
-  // var _showFavoritesOnly = false;
+  var _showFavoritesOnly = false;
   final String authToken;
   final String userId;
 
