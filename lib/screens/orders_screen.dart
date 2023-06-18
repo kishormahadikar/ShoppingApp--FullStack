@@ -38,10 +38,10 @@ class OrdersScreen extends StatelessWidget {
                         const SizedBox(
                           height: 50,
                         ),
-                        Image.asset(
-                          'images/waiting.png',
-                          fit: BoxFit.cover,
-                        ),
+                        // Image.asset(
+                        //   'images/waiting.png',
+                        //   fit: BoxFit.cover,
+                        // ),
                         
                       ],
                     ),

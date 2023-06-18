@@ -24,7 +24,7 @@ class ProductItem extends StatelessWidget {
 
          // backgroundColor: Colors.black87,
           leading: Padding(
-           padding: const EdgeInsets.only(top:1.0),
+           padding: const EdgeInsets.only(top:20.0),
             child: Consumer<Product>(
               builder: (ctx, product, _) => IconButton(
                     icon: Icon(
@@ -41,14 +41,19 @@ class ProductItem extends StatelessWidget {
                   ),
             ),
           ),
-          title: Text(
-            product.title,
-            textAlign: TextAlign.center,
-            softWrap: true,
-            
+          title: Padding(
+            padding: const EdgeInsets.only(top:15.0),
+            child: Text(
+              product.title,
+              style: TextStyle(color: Colors.black),
+              maxLines: 2,
+              textAlign: TextAlign.center,
+              softWrap: true,
+              
+            ),
           ),
           trailing: Padding(
-            padding: const EdgeInsets.only(top:1.0),
+            padding: const EdgeInsets.only(top:20.0),
             child: IconButton(
               icon: const Icon(
                 Icons.shopping_cart,

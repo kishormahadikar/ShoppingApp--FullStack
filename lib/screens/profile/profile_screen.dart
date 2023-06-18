@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 
@@ -6,16 +8,24 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Profile"),
-         shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(15),
-        bottomRight: Radius.circular(15)
-      )
-    ),
+    //   appBar: AppBar(
+    //     backgroundColor: Colors.white70,
+    //     title: Text("Profile",style: TextStyle(color: Colors.black),),
+    //      shape: const RoundedRectangleBorder(
+    //     borderRadius: BorderRadius.only(
+    //     bottomLeft: Radius.circular(15),
+    //     bottomRight: Radius.circular(15)
+    //   )
+    // ),
+    //  ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height*0.1,
+          ),
+          Body(),
+        ],
       ),
-      body: Body(),
       //bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
     );
   }
