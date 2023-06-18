@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopapp/providers/auth.dart';
 import 'package:shopapp/providers/cart.dart';
-import 'package:shopapp/providers/prodj.dart';
-import '../../../components/default_button.dart';
-import '../../../providers/Product.dart';
-import '../../../size_config.dart';
 import 'package:provider/provider.dart';
 import 'color_dots.dart';
 import 'product_description.dart';

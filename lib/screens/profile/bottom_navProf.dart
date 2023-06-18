@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopapp/screens/products_overview_screen.dart';
 import '../../constants.dart';
 
 enum MenuState { home, favourite, message, profile }

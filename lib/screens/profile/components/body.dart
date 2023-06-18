@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopapp/providers/auth.dart';
-import 'package:shopapp/screens/auth_screen.dart';
 import 'profile_menu.dart';
 import 'profile_pic.dart';
 
