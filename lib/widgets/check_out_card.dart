@@ -69,11 +69,13 @@ class _CheckoutCardState extends State<CheckoutCard> {
                 style: TextStyle(
                   fontSize: 14
                 ),)),
-                const SizedBox(width: 10),
-                 const Icon(
-                  Icons.arrow_forward_ios,
-                  size: 12,
-                  color: Colors.black,
+                //const SizedBox(width: 5),
+                  IconButton(
+                  icon: const Icon(Icons.arrow_forward_ios,size: 12,),
+                 
+                  color: Colors.black, onPressed: () { setState(() {
+                shoulShowInput = false;
+              }); },
                 ),
                  shoulShowInput==true?
                 const SizedBox(
@@ -88,13 +90,7 @@ class _CheckoutCardState extends State<CheckoutCard> {
                 
                   ],
                 ),
-                // Text("Add voucher code"),
-                // const SizedBox(width: 10),
-                // Icon(
-                //   Icons.arrow_forward_ios,
-                //   size: 12,
-                //   color: kTextColor,
-                // )
+              
               ],
             ),
             SizedBox(height: 20),

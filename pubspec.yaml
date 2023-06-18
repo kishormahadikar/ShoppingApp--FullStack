@@ -36,6 +36,8 @@ dependencies:
   shared_preferences: ^0.5.3+1
   firebase_auth: ^4.6.3
   firebase_core: ^2.14.0
+  vector_math: ^2.0.8
+  
 
 
 

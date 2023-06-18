@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopapp/providers/product.dart';
 import 'package:shopapp/screens/profile/profile_screen.dart';
 import 'package:shopapp/screens/details/details_screen.dart';
 import 'package:shopapp/screens/tabscreen.dart';
+import 'package:shopapp/widgets/product_item.dart';
 import './screens/splash_screen.dart';
 import './screens/cart_screen.dart';
 import './screens/product_detail_screen.dart';
@@ -29,6 +31,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: Auth(),
         ),
+        // ChangeNotifierProxyProvider<Product>(
+        //   update: (ctx, auth, previousProducts) => ProductItem()
+        // ),
         ChangeNotifierProxyProvider<Auth, Products>(
           update: (ctx, auth, previousProducts) => Products(
                 auth.token,
@@ -69,6 +74,7 @@ class MyApp extends StatelessWidget {
                     ),
               routes: {
                 AuthScreen.routeName:(context) => AuthScreen(),
+                TabScreen.routeName:(context) => TabScreen(),
                 ProfileScreen.routeName:((context) => ProfileScreen()),
                 DetailsScreen.routeName:(ctx)=>DetailsScreen(),
                 //ProfileSc.routeName:(ctx)=>ProfileScreen(),

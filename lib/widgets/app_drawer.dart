@@ -5,11 +5,14 @@ import '../screens/orders_screen.dart';
 import '../screens/user_products_screen.dart';
 import '../providers/auth.dart';
 
+
+
 class AppDrawer extends StatelessWidget {
   @override
+
   Widget build(BuildContext context) {
     return Drawer(
-      
+      elevation: 20,
       child: Column(
         children: <Widget>[
           AppBar(

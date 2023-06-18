@@ -18,6 +18,7 @@ class DetailsScreen extends StatelessWidget {
     // final ProductDetailsArguments agrs =
     //     ModalRoute.of(context).settings.arguments as ProductDetailsArguments;
     final productId = ModalRoute.of(context).settings.arguments as String;
+    print("PVGFCVUGFVGU"+productId);
     final args = Provider.of<Products>(context)
         .items
         .firstWhere((element) => element.id == productId);
@@ -25,16 +26,16 @@ class DetailsScreen extends StatelessWidget {
       backgroundColor: Color(0xFFF5F6F9),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(AppBar().preferredSize.height),
-    //     child: AppBar(
-    //       title: Text(args.title),
-    //       shape: const RoundedRectangleBorder(
-    //     borderRadius: BorderRadius.only(
-    //     bottomLeft: Radius.circular(15),
-    //     bottomRight: Radius.circular(15)
-    //   )
-    // ),
-    //     ),
-       child: CustomAppBar(rating: 5),
+        //     child: AppBar(
+        //       title: Text(args.title),
+        //       shape: const RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.only(
+        //     bottomLeft: Radius.circular(15),
+        //     bottomRight: Radius.circular(15)
+        //   )
+        // ),
+        //     ),
+        child: CustomAppBar(rating: 5),
       ),
       body: Body(
         colors: args.colors,
@@ -45,18 +46,17 @@ class DetailsScreen extends StatelessWidget {
         title: args.title,
         price: args.price,
         toggleFavoriteStatus: args.toggleFavoriteStatus,
-
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Container(
         height: 60,
         alignment: Alignment.center,
-        width: MediaQuery.of(context).size.width/1.4,
+        width: MediaQuery.of(context).size.width / 1.4,
         child: DefaultButton(
           text: "Add To Cart",
           color: Colors.deepPurple,
           press: (() {
-            cartData.addItem(args.id, args.price, args.title,args.imageUrl);
+            cartData.addItem(args.id, args.price, args.title, args.imageUrl);
           }),
         ),
       ),
@@ -67,5 +67,5 @@ class DetailsScreen extends StatelessWidget {
 class ProductDetailsArguments {
   final Product product;
 
-  ProductDetailsArguments({@required this.product});
+  ProductDetailsArguments({this.product});
 }

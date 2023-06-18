@@ -88,8 +88,8 @@ class AuthScreen extends StatelessWidget {
                       children: <Widget>[
                         Column(
                           children: [
-                            const Text(
-                                'Use credentials: username: terminator1405@gmail.com, pw-12345678  or SIGN UP'),
+                            // const Text(
+                            //     'Use credentials: username: terminator1405@gmail.com, pw-12345678  or SIGN UP'),
                             Image.network(
                                 'https://logowik.com/content/uploads/images/t_shop-app6999.jpg')
                           ],

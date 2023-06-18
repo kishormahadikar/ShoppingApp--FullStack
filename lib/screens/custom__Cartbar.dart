@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:shopapp/screens/products_overview_screen.dart';
+import 'package:shopapp/screens/tabscreen.dart';
 import '../../../constants.dart';
 import '../../../../size_config.dart';
 
@@ -43,7 +45,7 @@ class CustomBar extends StatelessWidget {
                       backgroundColor: Colors.white,
                       padding: EdgeInsets.zero,
                     ),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () => Navigator.of(context).pushReplacementNamed(TabScreen.routeName),
                     child: const Icon(
                       Icons.arrow_back_ios_sharp,
                       color: Colors.deepPurpleAccent,
