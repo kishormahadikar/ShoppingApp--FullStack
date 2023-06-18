@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
                 ProfileScreen.routeName:((context) => ProfileScreen()),
                 DetailsScreen.routeName:(ctx)=>DetailsScreen(),
                 //ProfileSc.routeName:(ctx)=>ProfileScreen(),
-                ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+               // ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
                 CartScreen.routeName: (ctx) => CartScreen(),
                 OrdersScreen.routeName: (ctx) => OrdersScreen(),
                 UserProductsScreen.routeName: (ctx) => UserProductsScreen(),

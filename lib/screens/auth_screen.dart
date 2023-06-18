@@ -37,19 +37,15 @@ class AuthScreen extends StatelessWidget {
 
     final deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.deepPurple,
-
-      // ),
-      //resizeToAvoidBottomInset: false,
+      
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 150.0,
+              height: deviceSize.height*0.15,
               decoration: BoxDecoration(
                 color: Colors.deepPurple,
-                boxShadow: const [BoxShadow(blurRadius: 40.0)],
+                boxShadow: const [BoxShadow(blurRadius: 5.0)],
                 borderRadius: BorderRadius.vertical(
                     bottom: Radius.elliptical(
                         MediaQuery.of(context).size.width, 100.0)),
@@ -80,7 +76,7 @@ class AuthScreen extends StatelessWidget {
 
                 SingleChildScrollView(
                   child: SizedBox(
-                    height: deviceSize.height - 125,
+                    height: deviceSize.height *0.85,
                     width: deviceSize.width,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -88,10 +84,13 @@ class AuthScreen extends StatelessWidget {
                       children: <Widget>[
                         Column(
                           children: [
-                            // const Text(
-                            //     'Use credentials: username: terminator1405@gmail.com, pw-12345678  or SIGN UP'),
-                            Image.network(
-                                'https://logowik.com/content/uploads/images/t_shop-app6999.jpg')
+                            const Text(
+                                'Use credentials: username: k@gmail.com, pw-123123123  or SIGN UP'),
+                            SizedBox(
+                              height: deviceSize.height*0.35,
+                              child: Image.network(
+                                  'https://logowik.com/content/uploads/images/t_shop-app6999.jpg'),
+                            )
                           ],
                         ),
                         Flexible(
@@ -229,58 +228,81 @@ class _AuthCardState extends State<AuthCard> {
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(labelText: 'E-Mail'),
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,
-                        ),
-                    keyboardType: TextInputType.emailAddress,
-                    // ignore: missing_return
-                    validator: (value) {
-                      if (value.isEmpty || !value.contains('@')) {
-                        return 'Invalid email!';
-                      }
-                    },
-                    onSaved: (value) {
-                      _authData['email'] = value;
-                    },
+                  Container(
+                    padding:const EdgeInsets.symmetric(horizontal: 20),
+                     decoration: BoxDecoration(color: Colors.grey[300],
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: TextFormField(
+                      decoration: const InputDecoration(labelText: 'E-Mail',
+                      border: InputBorder.none,
+                      ),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 22,
+                          ),
+                      keyboardType: TextInputType.emailAddress,
+                      // ignore: missing_return
+                      validator: (value) {
+                        if (value.isEmpty || !value.contains('@')) {
+                          return 'Invalid email!';
+                        }
+                      },
+                      onSaved: (value) {
+                        _authData['email'] = value;
+                      },
+                    ),
                   ),
-                  TextFormField(
-                    decoration: const InputDecoration(labelText: 'Password'),
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 22,),
-                    obscureText: true,
-                    controller: _passwordController,
-                    // ignore: missing_return
-                    validator: (value) {
-                      if (value.isEmpty || value.length < 5) {
-                        return 'Password is too short!';
-                      }
-                    },
-                    onSaved: (value) {
-                      _authData['password'] = value;
-                    },
+                  SizedBox(
+                    height: 7,
                   ),
-                  if (_authMode == AuthMode.Signup)
-                    TextFormField(
-                      enabled: _authMode == AuthMode.Signup,
-                      decoration:
-                          const InputDecoration(labelText: 'Confirm Password'),
+                  Container(
+                     padding:const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(color: Colors.grey[300],
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: TextFormField(
+                      decoration: const InputDecoration(labelText: 'Password',
+                      border: InputBorder.none,),
                       style: const TextStyle(
                           color: Colors.black,
                           fontSize: 22,),
-                          //fontWeight: FontWeight.bold),
                       obscureText: true,
-                      validator: _authMode == AuthMode.Signup
-                          // ignore: missing_return
-                          ? (value) {
-                              if (value != _passwordController.text) {
-                                return 'Passwords do not match!';
+                      controller: _passwordController,
+                      // ignore: missing_return
+                      validator: (value) {
+                        if (value.isEmpty || value.length < 5) {
+                          return 'Password is too short!';
+                        }
+                      },
+                      onSaved: (value) {
+                        _authData['password'] = value;
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 7,),
+                  if (_authMode == AuthMode.Signup)
+                    Container(
+                      padding:const EdgeInsets.symmetric(horizontal: 20),
+                     decoration: BoxDecoration(color: Colors.grey[300],
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                      child: TextFormField(
+                        enabled: _authMode == AuthMode.Signup,
+                        decoration:
+                            const InputDecoration(labelText: 'Confirm Password',
+                            border: InputBorder.none),
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,),
+                            //fontWeight: FontWeight.bold),
+                        obscureText: true,
+                        validator: _authMode == AuthMode.Signup
+                            // ignore: missing_return
+                            ? (value) {
+                                if (value != _passwordController.text) {
+                                  return 'Passwords do not match!';
+                                }
                               }
-                            }
-                          : null,
+                            : null,
+                      ),
                     ),
                   const SizedBox(
                     height: 20,
@@ -294,11 +316,9 @@ class _AuthCardState extends State<AuthCard> {
                           height: 20,
                         ),
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        
                           children: [
-                            const SizedBox(
-                              width: 45,
-                            ),
                             ElevatedButton(
                                 style: ButtonStyle(
                                     shape: MaterialStateProperty.all<
@@ -321,9 +341,6 @@ class _AuthCardState extends State<AuthCard> {
                                     ),
                                   ),
                                 )),
-                            const SizedBox(
-                              width: 80,
-                            ),
                             ElevatedButton(
                                 style: ButtonStyle(
                                     shape: MaterialStateProperty.all<
@@ -343,6 +360,7 @@ class _AuthCardState extends State<AuthCard> {
                                         style: const TextStyle(fontSize: 20)),
                                   ),
                                 )),
+                                
                           ],
                         ),
                       ],

@@ -64,18 +64,13 @@ class Body extends StatelessWidget {
                           // bottom: getProportionateScreenWidth(40),
                           // top: getProportionateScreenWidth(15),
                         ),
-                        // child: DefaultButton(
-                        //   text: "Add To Cart",
-                        //   press: (() {
-                        //     cartData.addItem(id, price, title);
-                        //   }),
-                        // ),
+                      
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               )
             ],

@@ -18,13 +18,15 @@ class ProfileScreen extends StatelessWidget {
     //   )
     // ),
     //  ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height*0.1,
-          ),
-          Body(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height*0.1,
+            ),
+            Body(),
+          ],
+        ),
       ),
       //bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
     );

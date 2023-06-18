@@ -42,7 +42,7 @@ class ProductItem extends StatelessWidget {
             ),
           ),
           title: Padding(
-            padding: const EdgeInsets.only(top:15.0),
+            padding: const EdgeInsets.only(top:18.0),
             child: Text(
               product.title,
               style: TextStyle(color: Colors.black),

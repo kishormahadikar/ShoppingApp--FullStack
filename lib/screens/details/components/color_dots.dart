@@ -29,41 +29,45 @@ class _ColorDotsState extends State<ColorDots> {
     // Now this is fixed and only for demo
     int selectedColor = 3;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20 //c20
-          ),
-      child: Row(
-        children: [
-          ...List.generate(
-            colors.length,
-            (index) => ColorDot(
-              color: colors[index],
-              isSelected: index == selectedColor,
+        padding: EdgeInsets.symmetric(horizontal: 20 //c20
             ),
-          ),
-          Spacer(),
-          RoundedIconBtn(
-            icon: Icons.remove,
-            press: () {
-             i>1? setState(() {
-                i -= 1;
-              }):(){};
-            },
-          ),
-          const SizedBox(width: 20),
-          Text(i.toString()),
-          const SizedBox(width: 20),
-          RoundedIconBtn(
-            icon: Icons.add,
-            showShadow: true,
-            press: () {
-             i<10? setState(() {
-                i += 1;
-              }):(){};
-            },
-          ),
-        ],
-      ),
-    );
+        child: Row(
+              children: [
+                ...List.generate(
+                  colors.length,
+                  (index) => ColorDot(
+                    color: colors[index],
+                    isSelected: index == selectedColor,
+                  ),
+                ),
+                Spacer(),
+                RoundedIconBtn(
+                  icon: Icons.remove,
+                  press: () {
+                    i > 1
+                        ? setState(() {
+                            i -= 1;
+                          })
+                        : () {};
+                  },
+                ),
+                const SizedBox(width: 10),
+                Text(i.toString()),
+                const SizedBox(width: 10),
+                RoundedIconBtn(
+                  icon: Icons.add,
+                  showShadow: true,
+                  press: () {
+                    i < 10
+                        ? setState(() {
+                            i += 1;
+                          })
+                        : () {};
+                  },
+                ),
+              ],
+            
+        ));
   }
 }
 
